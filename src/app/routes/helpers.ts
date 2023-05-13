@@ -7,7 +7,7 @@ export interface RouteConfig {
   id: string;
   label: string;
   path: string;
-  Component: ComponentType | any;
+  Component: ComponentType;
   authenticated: boolean;
 }
 

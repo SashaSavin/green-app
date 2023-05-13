@@ -11,10 +11,14 @@ export default {
     },
 
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif']
+      sans: ['Plus Jakarta Sans', 'sans-serif'],
+      serif: ['Montserrat', 'serif']
     },
     extend: {
+      content: {
+        userImg: "url('/src/assets/user.svg')",
+        lockImg: "url('/src/assets/lock.svg')"
+      },
       spacing: {
         128: '32rem',
         144: '36rem'
