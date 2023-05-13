@@ -12,7 +12,7 @@ export const LoginForm = () => {
 
   const onSubmit = (data: any) => {
     console.log(data);
-    navigate('/chat');
+    navigate('/find');
   };
 
   return (

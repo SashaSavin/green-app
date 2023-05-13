@@ -20,7 +20,8 @@ export const CompanionCard = ({ id, name, message, isActive, handleClick }: Prop
         hover:shadow-lg
       hover:bg-[#c2d2d2]
         flex items-center
-        space-x-4
+        space-x-3
+        cursor-pointer
         ${isActive === id && activeStyle}`}>
       <div className="shrink-0">
         <img className="h-12 w-12" src={img} />

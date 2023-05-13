@@ -4,7 +4,7 @@ import img3 from '../../../assets/3.png';
 
 export const Instruction = (): JSX.Element => {
   return (
-    <div className="mt-5 flex flex-col font-serif">
+    <div className="mt-5 flex flex-col font-serif text-gray-600">
       <span className="inline-flex gap-3 pb-3">
         <img src={img1} alt="img" /> авторизуйтесь
       </span>

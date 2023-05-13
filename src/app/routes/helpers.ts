@@ -2,6 +2,7 @@ import { generatePath, useNavigate } from 'react-router-dom';
 import { reject } from 'rambda';
 import { Chat, Login } from 'pages';
 import { ComponentType } from 'react';
+import { FindUser } from 'pages/find-user/FindUser';
 
 export interface RouteConfig {
   id: string;
@@ -13,12 +14,14 @@ export interface RouteConfig {
 
 export enum RouteName {
   Login = 'Login',
-  Chat = 'Chat'
+  Chat = 'Chat',
+  FindUser = 'FindUser'
 }
 
 export enum PathName {
   login = '/login',
-  chat = '/chat'
+  chat = '/chat',
+  find = '/find'
 }
 
 const routes: Record<RouteName, RouteConfig> = {
@@ -34,6 +37,13 @@ const routes: Record<RouteName, RouteConfig> = {
     label: 'chat',
     path: PathName.chat,
     Component: Chat,
+    authenticated: true
+  },
+  [RouteName.FindUser]: {
+    id: 'find',
+    label: 'find',
+    path: PathName.find,
+    Component: FindUser,
     authenticated: true
   }
 };
