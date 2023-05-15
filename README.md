@@ -17,7 +17,7 @@
 - npm i
 - npm run dev
 
-### либо
+### либо при помощи docker:
 
 - docker build -t react-test-app .
 - docker run -p 3000:3000 react-test-app
