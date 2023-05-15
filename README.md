@@ -11,22 +11,22 @@
 [figma-layout](https://www.figma.com/file/q5AAbApJBt5SAEiDkMtMt1/WhatsApp--Desktop-Redesign-(Community)?type=design&node-id=129%3A2333&t=WPR578ZAeQUFgznT-1)
 
 
-### чтобы запустить локально:
+### Чтобы запустить локально:
 
 - git clone https://github.com/SashaSavin/green-app.git
 - npm i
 - npm run dev
 
-### либо при помощи docker:
+### Либо при помощи docker:
 
 - docker build -t react-test-app .
 - docker run -p 3000:3000 react-test-app
 
 ## DEMO
-### логин
+### Логин
 <img width="628" alt="image" src="https://github.com/SashaSavin/green-app/assets/44065485/5bf03439-6769-4afd-8b4f-198729ebc044">
 
-### поиск контактов
+### Поиск контактов
 <img width="568" alt="image" src="https://github.com/SashaSavin/green-app/assets/44065485/fabb4a65-70ce-4adc-aea9-6e4bf7a167a0">
 
 
