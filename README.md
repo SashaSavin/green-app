@@ -1,4 +1,5 @@
 ## GREEN APP
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0492b826-f0ba-429b-b515-a69df2017096/deploy-status)](https://app.netlify.com/sites/courageous-speculoos-7a5944/deploys)
 
 ### чтобы запустить локально:
 
