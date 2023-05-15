@@ -23,10 +23,10 @@
 - docker run -p 3000:3000 react-test-app
 
 ## DEMO
-* логин
+### логин
 <img width="628" alt="image" src="https://github.com/SashaSavin/green-app/assets/44065485/5bf03439-6769-4afd-8b4f-198729ebc044">
 
-* поиск контактов
+### поиск контактов
 <img width="568" alt="image" src="https://github.com/SashaSavin/green-app/assets/44065485/fabb4a65-70ce-4adc-aea9-6e4bf7a167a0">
 
 
