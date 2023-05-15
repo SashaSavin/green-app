@@ -1,8 +1,9 @@
 ## GREEN APP
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0492b826-f0ba-429b-b515-a69df2017096/deploy-status)](https://app.netlify.com/sites/courageous-speculoos-7a5944/deploys)
 
-[green-app-test.netlify.app/
-](https://green-app-test.netlify.app/)
+[green-app](https://green-app-test.netlify.app/)
+
+[figma-layout](https://www.figma.com/file/q5AAbApJBt5SAEiDkMtMt1/WhatsApp--Desktop-Redesign-(Community)?type=design&node-id=129%3A2333&t=WPR578ZAeQUFgznT-1)
 
 ### чтобы запустить локально:
 
