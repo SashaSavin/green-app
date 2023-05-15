@@ -1,20 +1,75 @@
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useMutation } from 'react-query';
+import { useProfileStore } from 'store';
+import { apiTokenInstance, idInstance } from 'shared/services/apiConfigs';
 import { Info } from '../components';
+import { useNavigate } from 'react-router-dom';
 
-export const FindUserForm = () => {
+const validationSchema = yup.object().shape({
+  number: yup
+    .string()
+    .required('Введите номер телефона*')
+    .matches(/^\+?\d+$/, 'Некорректный номер телефона*')
+});
+
+export const FindUserForm = (): JSX.Element => {
+  const { addContact } = useProfileStore();
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm();
+  } = useForm({ resolver: yupResolver(validationSchema) });
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const [showError, setShowError] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout | null = null;
+
+    if (showError) {
+      timer = setTimeout(() => {
+        setShowError(false);
+      }, 3500);
+    }
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [showError]);
+
+  const { mutateAsync } = useMutation((data: any) =>
+    fetch(`https://api.green-api.com/waInstance${idInstance}/CheckWhatsapp/${apiTokenInstance}`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json())
+  );
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
+    try {
+      const response = await mutateAsync({ phoneNumber: data.number });
+
+      if (response.existsWhatsapp) {
+        addContact(data.number);
+        navigate(`/chat/${data.number}`);
+      } else {
+        setShowError(true);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
     <form className="flex flex-col mt-20 items-center" onSubmit={handleSubmit(onSubmit)}>
-      {errors.number && <p className="text-red-500 text-xs ">обязательно для заполнения*</p>}
+      {errors.number && <p className="text-red-500 text-xs">{errors.number.message?.toString()}</p>}
 
       <input
         type="text"
@@ -24,8 +79,7 @@ export const FindUserForm = () => {
             border-[1px]
             border-gray-900
             rounded
-            ${errors.id ? 'border-red-500' : ''}
-           
+            ${errors.number ? 'border-red-500' : ''}
             `}
         placeholder=" Найти по номеру"
         {...register('number', { required: true })}
@@ -44,6 +98,12 @@ export const FindUserForm = () => {
             shadow-lg">
         НАЧАТЬ ЧАТ
       </button>
+
+      {showError && (
+        <div className="text-center mt-3 text-red-500">
+          <p>Пользователя с данным номером нет в whatsapp!*</p>
+        </div>
+      )}
 
       <Info />
     </form>

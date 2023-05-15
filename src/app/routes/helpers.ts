@@ -20,7 +20,7 @@ export enum RouteName {
 
 export enum PathName {
   login = '/login',
-  chat = '/chat',
+  chat = '/chat/:id',
   find = '/find'
 }
 

@@ -1,6 +1,7 @@
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import change from 'assets/change-profile-img.png';
+import { useProfileStore } from 'store';
 
 interface Props {
   setOpenProfile: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,10 +9,10 @@ interface Props {
 
 export const ProfileSettings = ({ setOpenProfile }: Props) => {
   const navigate = useNavigate();
+  const { user } = useProfileStore();
 
   const handleBack = () => {
     setOpenProfile(false);
-    navigate(-1);
   };
 
   return (
@@ -31,7 +32,7 @@ export const ProfileSettings = ({ setOpenProfile }: Props) => {
       <div className="flex justify-start flex-col mt-20">
         <div>
           <h1 className="text-gray-500">Имя</h1>
-          <p className="font-bold text-2xl">Пользователь профиля</p>
+          <p className="font-bold text-2xl">id{user?.id}</p>
         </div>
 
         <div>
@@ -39,6 +40,10 @@ export const ProfileSettings = ({ setOpenProfile }: Props) => {
           <p className="font-bold text-2xl">Информация о пользователе профиля. </p>
         </div>
       </div>
+
+      <button onClick={() => navigate('/login')} className="mt-10 text-red-600">
+        Выйти
+      </button>
     </div>
   );
 };
