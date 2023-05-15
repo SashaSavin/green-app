@@ -22,7 +22,7 @@
 - docker build -t react-test-app .
 - docker run -p 3000:3000 react-test-app
 
-## demo
+## DEMO
 * логин
 <img width="628" alt="image" src="https://github.com/SashaSavin/green-app/assets/44065485/5bf03439-6769-4afd-8b4f-198729ebc044">
 
